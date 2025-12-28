@@ -2,7 +2,7 @@ import { List, LocalStorage, ActionPanel, Action } from "@raycast/api";
 import { useEffect, useState, useMemo } from "react";
 import Fuse from "fuse.js";
 
-import { getRedirectionUrl, SHORTCUT_KEYS, fuseOptions } from "./utils/constants";
+import { getRedirectionUrl, SHORTCUT_KEYS, fuseOptions, USE_REDIRECTION } from "./utils/constants";
 import { syncShortcutKeys } from "./utils/sync";
 import { keyListSchema, KeyList } from "./utils/schema";
 
@@ -22,7 +22,6 @@ export default function ShortcutKeysCommand() {
       if (storedKeys) {
         try {
           const parsed = keyListSchema.parse(JSON.parse(storedKeys));
-          // const parsed: string[] = JSON.parse(storedKeys);
           setKeys(parsed);
         } catch {
           setKeys([]);
@@ -54,7 +53,10 @@ export default function ShortcutKeysCommand() {
             subtitle={item.value}
             actions={
               <ActionPanel>
-                <Action.OpenInBrowser title="Open URL" url={getRedirectionUrl(item.key)} />
+                <Action.OpenInBrowser
+                  title="Open URL"
+                  url={USE_REDIRECTION ? getRedirectionUrl(item.key) : item.value}
+                />
               </ActionPanel>
             }
           />

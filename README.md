@@ -4,10 +4,11 @@ A personal Raycast extension to quickly fuzzy-search and open your URL shortcuts
 
 ## Overview
 
-This extension lets you search through your predefined URL shortcuts using fuzzy matching. Once you select a shortcut, it can either:
-
-- **Sync**: Access your URL data via a sync endpoint.  
+This extension lets you search through your predefined URL shortcuts using fuzzy matching. It has two main commands.
+- **Sync**: Update your local storage with the latest redirections.
 - **Redirect**: Redirect to the target URL using a redirect endpoint, which must end with `?k=`.
+
+You can chose to use the local value by unchecking the `Use 302 Redirection` checkbox, this opens the link stored locally directly.
 
 ## Requirements
 

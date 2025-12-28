@@ -15,6 +15,14 @@
   "license": "MIT",
   "preferences": [
     {
+      "name": "use_302_redirection",
+      "title": "Use 302 Redirection",
+      "type": "checkbox",
+      "default": false,
+      "description": "Select the redirection URL with a 302 response or the locally stored destination.",
+      "required": true
+    },
+    {
       "name": "redirection_endpoint",
       "title": "Redirection endpoint",
       "type": "textfield",
@@ -25,7 +33,7 @@
       "name": "sync_endpoint",
       "title": "Sync endpoint",
       "type": "textfield",
-      "description": "Your endpoint to fetch all eys",
+      "description": "Your endpoint to fetch all endpoints.",
       "required": true
     }
   ],
