@@ -10,8 +10,9 @@ export const SYNC_ENDPOINT = getPreferenceValues()["sync_endpoint"];
 const REDIRECTION_ENDPOINT = getPreferenceValues()["redirection_endpoint"];
 
 export const EDIT_ENDPOINT = getPreferenceValues()["edit_endpoint"];
-export const getEditUrl = (key: string, value: string, description?: string) =>
-  `${EDIT_ENDPOINT}?Key=${key}&Value=${value}&Description=${description ?? ""}`;
+export const getEditUrl = (key: string) => {
+  return `${EDIT_ENDPOINT}?k=${key}`;
+};
 export const DELETE_ENDPOINT = getPreferenceValues()["delete_endpoint"];
 export const getDeleteUrl = (key: string) => `${DELETE_ENDPOINT}?Key=${key}`;
 

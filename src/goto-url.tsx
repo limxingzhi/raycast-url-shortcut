@@ -68,7 +68,7 @@ export default function ShortcutKeysCommand() {
                   url={USE_REDIRECTION ? getRedirectionUrl(item.key) : item.value}
                 />
                 {Boolean(EDIT_ENDPOINT) && (
-                  <Action.OpenInBrowser title="Edit URL" url={getEditUrl(item.key, item.value, item.description)} />
+                  <Action.OpenInBrowser title="Edit URL" url={decodeURIComponent(getEditUrl(item.key))} />
                 )}
 
                 {Boolean(DELETE_ENDPOINT) && <Action.OpenInBrowser title="Delete URL" url={getDeleteUrl(item.key)} />}

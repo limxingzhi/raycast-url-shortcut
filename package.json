@@ -63,7 +63,7 @@
       "title": "Sync URL keys",
       "description": "Fetches the latest URL keys",
       "mode": "no-view",
-      "interval": "2h"
+      "interval": "10m"
     }
   ],
   "dependencies": {
