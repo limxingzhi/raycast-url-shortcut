@@ -26,7 +26,7 @@
       "name": "redirection_endpoint",
       "title": "Redirection endpoint",
       "type": "textfield",
-      "description": "Your endpoint to redirect, ending with a ?k=",
+      "description": "Your endpoint to redirect.",
       "required": true
     },
     {
@@ -35,6 +35,20 @@
       "type": "textfield",
       "description": "Your endpoint to fetch all endpoints.",
       "required": true
+    },
+    {
+      "name": "delete_endpoint",
+      "title": "Delete endpoint",
+      "type": "textfield",
+      "description": "n8n form to delete an endpoint.",
+      "required": false
+    },
+    {
+      "name": "edit_endpoint",
+      "title": "Edit endpoint",
+      "type": "textfield",
+      "description": "n8n form to edit an endpoint.",
+      "required": false
     }
   ],
   "commands": [

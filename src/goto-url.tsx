@@ -2,7 +2,16 @@ import { List, LocalStorage, ActionPanel, Action } from "@raycast/api";
 import { useEffect, useState, useMemo } from "react";
 import Fuse from "fuse.js";
 
-import { getRedirectionUrl, SHORTCUT_KEYS, fuseOptions, USE_REDIRECTION } from "./utils/constants";
+import {
+  getRedirectionUrl,
+  SHORTCUT_KEYS,
+  fuseOptions,
+  USE_REDIRECTION,
+  EDIT_ENDPOINT,
+  DELETE_ENDPOINT,
+  getEditUrl,
+  getDeleteUrl,
+} from "./utils/constants";
 import { syncShortcutKeys } from "./utils/sync";
 import { keyListSchema, KeyList } from "./utils/schema";
 
@@ -51,12 +60,18 @@ export default function ShortcutKeysCommand() {
             key={item.key + "_" + index}
             title={item.key}
             subtitle={item.value}
+            accessories={[{ text: item.description }]}
             actions={
               <ActionPanel>
                 <Action.OpenInBrowser
                   title="Open URL"
                   url={USE_REDIRECTION ? getRedirectionUrl(item.key) : item.value}
                 />
+                {Boolean(EDIT_ENDPOINT) && (
+                  <Action.OpenInBrowser title="Edit URL" url={getEditUrl(item.key, item.value, item.description)} />
+                )}
+
+                {Boolean(DELETE_ENDPOINT) && <Action.OpenInBrowser title="Delete URL" url={getDeleteUrl(item.key)} />}
               </ActionPanel>
             }
           />

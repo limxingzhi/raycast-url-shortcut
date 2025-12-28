@@ -4,6 +4,7 @@ export const keyListSchema = z.array(
   z.object({
     key: z.string(),
     value: z.string(),
+    description: z.string().optional(),
   }),
 );
 
