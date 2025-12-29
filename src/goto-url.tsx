@@ -67,10 +67,13 @@ export default function ShortcutKeysCommand() {
                   title="Open URL"
                   url={USE_REDIRECTION ? getRedirectionUrl(item.key) : item.value}
                 />
+                <Action.CopyToClipboard
+                  title="Copy URL"
+                  content={item.value}
+                />
                 {Boolean(EDIT_ENDPOINT) && (
                   <Action.OpenInBrowser title="Edit URL" url={decodeURIComponent(getEditUrl(item.key))} />
                 )}
-
                 {Boolean(DELETE_ENDPOINT) && <Action.OpenInBrowser title="Delete URL" url={getDeleteUrl(item.key)} />}
               </ActionPanel>
             }
