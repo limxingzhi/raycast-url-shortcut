@@ -70,11 +70,22 @@ export default function ShortcutKeysCommand() {
                 <Action.CopyToClipboard
                   title="Copy URL"
                   content={item.value}
+                  shortcut={{ modifiers: ["cmd"], key: "y" }}
                 />
                 {Boolean(EDIT_ENDPOINT) && (
-                  <Action.OpenInBrowser title="Edit URL" url={decodeURIComponent(getEditUrl(item.key))} />
+                  <Action.OpenInBrowser
+                    title="Edit URL"
+                    url={decodeURIComponent(getEditUrl(item.key))}
+                    shortcut={{ modifiers: ["cmd"], key: "i" }}
+                  />
                 )}
-                {Boolean(DELETE_ENDPOINT) && <Action.OpenInBrowser title="Delete URL" url={getDeleteUrl(item.key)} />}
+                {Boolean(DELETE_ENDPOINT) && (
+                  <Action.OpenInBrowser
+                    title="Delete URL"
+                    url={getDeleteUrl(item.key)}
+                    shortcut={{ modifiers: ["cmd"], key: "d" }}
+                  />
+                )}
               </ActionPanel>
             }
           />
