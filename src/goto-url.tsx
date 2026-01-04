@@ -1,4 +1,4 @@
-import { List, LocalStorage, ActionPanel, Action } from "@raycast/api";
+import { List, LocalStorage, ActionPanel, Action, Icon } from "@raycast/api";
 import { useEffect, useState, useMemo } from "react";
 import Fuse from "fuse.js";
 
@@ -64,6 +64,7 @@ export default function ShortcutKeysCommand() {
             actions={
               <ActionPanel>
                 <Action.OpenInBrowser
+                  icon={Icon.Compass}
                   title="Open URL"
                   url={USE_REDIRECTION ? getRedirectionUrl(item.key) : item.value}
                 />
@@ -74,6 +75,7 @@ export default function ShortcutKeysCommand() {
                 />
                 {Boolean(EDIT_ENDPOINT) && (
                   <Action.OpenInBrowser
+                    icon={Icon.Pencil}
                     title="Edit URL"
                     url={decodeURIComponent(getEditUrl(item.key))}
                     shortcut={{ modifiers: ["cmd"], key: "i" }}
@@ -81,6 +83,7 @@ export default function ShortcutKeysCommand() {
                 )}
                 {Boolean(DELETE_ENDPOINT) && (
                   <Action.OpenInBrowser
+                    icon={Icon.Trash}
                     title="Delete URL"
                     url={getDeleteUrl(item.key)}
                     shortcut={{ modifiers: ["cmd"], key: "d" }}
