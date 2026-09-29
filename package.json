@@ -16,6 +16,7 @@
   "preferences": [
     {
       "name": "use_302_redirection",
+      "label": "Use 302 Redirection",
       "title": "Use 302 Redirection",
       "type": "checkbox",
       "default": false,
