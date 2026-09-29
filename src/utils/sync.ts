@@ -4,7 +4,7 @@ import { KeyList, keyListSchema } from "./schema";
 
 const safeShowToast = (options: Toast.Options): Promise<Toast> | undefined => {
   const isBg = environment.launchType == LaunchType.Background;
-  console.log(`Fetching new data${isBg ? ' in the background' : ''}.`);
+  console.log(`Fetching new data${isBg ? " in the background" : ""}.`);
 
   if (isBg) return;
   else return showToast(options);
